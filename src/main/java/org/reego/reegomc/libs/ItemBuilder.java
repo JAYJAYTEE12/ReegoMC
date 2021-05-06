@@ -193,7 +193,7 @@ public class ItemBuilder {
         if (meta == null)
             return this;
         List<String> lore = meta.getLore() != null ? meta.getLore() : new ArrayList<>();
-        lore.add(translateColours ? org.reego.td.reegotd.libs.TextUtils.color(s) : s);
+        lore.add(translateColours ? org.reego.reegomc.libs.TextUtils.color(s) : s);
         meta.setLore(lore);
         item.setItemMeta(meta);
         return this;
@@ -233,7 +233,7 @@ public class ItemBuilder {
 
 
     public ItemBuilder addNBT(String key, String value) {
-        item = org.reego.td.reegotd.libs.NBTUtils.instance.setString(item, key, value);
+        item = org.reego.reegomc.libs.NBTUtils.instance.setString(item, key, value);
         return this;
     }
 
@@ -242,22 +242,22 @@ public class ItemBuilder {
     }
 
     public ItemBuilder addNBT(String key, int value) {
-        item = org.reego.td.reegotd.libs.NBTUtils.instance.setInt(item, key, value);
+        item = org.reego.reegomc.libs.NBTUtils.instance.setInt(item, key, value);
         return this;
     }
 
     public ItemBuilder addNBT(String key, double value) {
-        item = org.reego.td.reegotd.libs.NBTUtils.instance.setDouble(item, key, value);
+        item = org.reego.reegomc.libs.NBTUtils.instance.setDouble(item, key, value);
         return this;
     }
 
     public ItemBuilder addNBT(String key, long value) {
-        item = org.reego.td.reegotd.libs.NBTUtils.instance.setLong(item, key, value);
+        item = org.reego.reegomc.libs.NBTUtils.instance.setLong(item, key, value);
         return this;
     }
 
     public ItemBuilder addNBT(String key, byte[] value) {
-        item = org.reego.td.reegotd.libs.NBTUtils.instance.setByteArray(item, key, value);
+        item = org.reego.reegomc.libs.NBTUtils.instance.setByteArray(item, key, value);
         return this;
     }
 
