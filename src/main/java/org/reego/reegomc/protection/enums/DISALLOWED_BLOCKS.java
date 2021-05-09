@@ -1,0 +1,16 @@
+package org.reego.reegomc.protection.enums;
+
+public enum DISALLOWED_BLOCKS {
+    LEVER,
+    CHEST,
+    ENDER_CHEST,
+    DISPENSER,
+    DROPPER,
+    FURNACE,
+    TRAPPED_CHEST,
+    BUTTON,
+    STONE_PRESSURE_PLATE,
+    WOODEN_PRESSURE_PLATE,
+    LIGHT_WEIGHTED_PRESSURE_PLATE,
+    HEAVY_WEIGHTED_PRESSURE_PLATE,
+}

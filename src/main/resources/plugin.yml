@@ -3,3 +3,5 @@ version: ${project.version}
 main: org.reego.reegomc.ReegoMC
 authors: [ JAYJAYTEE ]
 depend: [WorldGuard]
+commands:
+  build:
