@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.reego.reegomc.ReegoMC;
+import org.reego.reegomc.libs.ItemBuilder;
 
 public class BlocksEvents implements Listener {
 
@@ -32,7 +33,8 @@ public class BlocksEvents implements Listener {
             Material o = event.getBlock().getType();
             byte data = event.getBlock().getData();
 
-            player.getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemStack(event.getBlock().getType(), 1, data));
+            player.getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemBuilder(event.getBlock().getType(), 1, data)
+            .setLore(1, "&f&lCOMMON").build());
             event.getBlock().setType(Material.AIR);
             player.getWorld().playEffect(event.getBlock().getLocation(), Effect.STEP_SOUND, event.getBlock().getType());
 

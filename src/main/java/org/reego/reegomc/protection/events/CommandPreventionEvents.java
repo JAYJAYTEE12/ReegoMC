@@ -11,7 +11,7 @@ public class CommandPreventionEvents implements Listener {
     @EventHandler
     public void onCommand(PlayerCommandPreprocessEvent event){
         for(String s : cantContain){
-            if(event.getMessage().contains(s)){
+            if(event.getMessage().split(" ")[0].equalsIgnoreCase("/"+s)){
                 event.setCancelled(true);
                 event.getPlayer().sendMessage("§fUnknown command. Type \"/help\" for help.");
                 return;
