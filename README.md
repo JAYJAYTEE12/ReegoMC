@@ -3,6 +3,8 @@
 An open-source Minecraft plugin for the Minecraft server ReegoMC.
 Feel free to have a look around. Everything here is for you to use outside the project.
 
+But if you clone the repo, change the name, and say you made the plugin then I will be very sad :(
+
 ## Discalimer
 
 This plugin is hosted on the ReegoMC server, although the versions on github and the server may not be synced.
