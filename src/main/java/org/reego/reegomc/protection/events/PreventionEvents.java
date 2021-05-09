@@ -17,32 +17,35 @@ import org.reego.reegomc.protection.enums.DISALLOWED_BLOCKS;
 public class PreventionEvents implements Listener {
 
     ReegoMC plugin;
-    public PreventionEvents(ReegoMC plugin){
+
+    public PreventionEvents(ReegoMC plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    public void onBreak(BlockBreakEvent event){
-        if(!BuildCommand.getBuildMode(event.getPlayer())){
+    public void onBreak(BlockBreakEvent event) {
+        if (!BuildCommand.getBuildMode(event.getPlayer())) {
             event.setCancelled(true);
         }
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    public void onPlace(BlockPlaceEvent event){
-        if(!BuildCommand.getBuildMode(event.getPlayer())){
+    public void onPlace(BlockPlaceEvent event) {
+        if (!BuildCommand.getBuildMode(event.getPlayer())) {
             event.setCancelled(true);
         }
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    public void onInteract(PlayerInteractEvent event){
+    public void onInteract(PlayerInteractEvent event) {
         Block block = event.getClickedBlock();
-        if(block == null){ return; }
-        if(!BuildCommand.getBuildMode(event.getPlayer())){
-            for(DISALLOWED_BLOCKS mat : DISALLOWED_BLOCKS.values()){
-                if(block.getType() == Material.getMaterial(String.valueOf(mat))){
+        if (block == null) {
+            return;
+        }
+        if (!BuildCommand.getBuildMode(event.getPlayer())) {
+            for (DISALLOWED_BLOCKS mat : DISALLOWED_BLOCKS.values()) {
+                if (block.getType() == Material.getMaterial(String.valueOf(mat))) {
                     event.setCancelled(true);
                 }
             }
@@ -50,7 +53,7 @@ public class PreventionEvents implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGH)
-    public void onFood(FoodLevelChangeEvent event){
+    public void onFood(FoodLevelChangeEvent event) {
         Player player = (Player) event.getEntity();
         event.setCancelled(true);
         event.setFoodLevel(20);

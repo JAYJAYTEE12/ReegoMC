@@ -15,17 +15,20 @@ import org.reego.reegomc.ReegoMC;
 public class BlocksEvents implements Listener {
 
     ReegoMC plugin;
-    public BlocksEvents(ReegoMC plugin){
+
+    public BlocksEvents(ReegoMC plugin) {
         this.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void onBreak(BlockBreakEvent event){
+    public void onBreak(BlockBreakEvent event) {
         Player player = event.getPlayer();
-        if(!player.getGameMode().equals(GameMode.SURVIVAL)){ return; }
+        if (!player.getGameMode().equals(GameMode.SURVIVAL)) {
+            return;
+        }
 
-        if(player.getWorld().getName().equals("world")){
+        if (player.getWorld().getName().equals("world")) {
             Material o = event.getBlock().getType();
             byte data = event.getBlock().getData();
 
