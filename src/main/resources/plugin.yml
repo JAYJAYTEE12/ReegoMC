@@ -9,6 +9,9 @@ commands:
       - saveeco
       - reloadeco
       - saveeconomy
+  reloadServer:
+    aliases:
+      - saveserver
   coins:
     aliases:
       - coin
@@ -16,3 +19,4 @@ commands:
       - money
       - bal
       - balance
+  lockdown:
