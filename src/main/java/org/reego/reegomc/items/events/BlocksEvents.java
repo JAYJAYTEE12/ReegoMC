@@ -29,7 +29,7 @@ public class BlocksEvents implements Listener {
             return;
         }
 
-        if (player.getWorld().getName().equals("world")) {
+        if (player.getWorld().getName().equals("build")) {
             Material o = event.getBlock().getType();
             byte data = event.getBlock().getData();
 
