@@ -34,7 +34,8 @@ public class BlocksEvents implements Listener {
             byte data = event.getBlock().getData();
 
             player.getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemBuilder(event.getBlock().getType(), 1, data)
-            .setLore(1, "&f&lCOMMON").build());
+            .setLore(1, "&f&lCOMMON")
+                    .addNBT("type", "common").build());
             event.getBlock().setType(Material.AIR);
             player.getWorld().playEffect(event.getBlock().getLocation(), Effect.STEP_SOUND, event.getBlock().getType());
 
