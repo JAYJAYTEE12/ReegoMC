@@ -6,12 +6,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.reego.reegomc.ReegoMC;
 import org.reego.reegomc.protection.commands.BuildCommand;
+import org.reego.reegomc.protection.enums.ALLOWED_BLOCKS;
 import org.reego.reegomc.protection.enums.DISALLOWED_BLOCKS;
 
 public class PreventionEvents implements Listener {
@@ -48,6 +50,17 @@ public class PreventionEvents implements Listener {
                 if (block.getType() == Material.getMaterial(String.valueOf(mat))) {
                     event.setCancelled(true);
                 }
+            }
+        }
+
+        if(!BuildCommand.getBuildMode(event.getPlayer())){
+            if(event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
+                for(ALLOWED_BLOCKS s : ALLOWED_BLOCKS.values()){
+                    if(event.getClickedBlock().getType().equals(Material.getMaterial(String.valueOf(s)))){
+                        return;
+                    }
+                }
+                event.setCancelled(true);
             }
         }
     }

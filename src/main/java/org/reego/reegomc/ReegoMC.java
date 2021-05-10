@@ -17,6 +17,7 @@ import org.reego.reegomc.protection.commands.BuildCommand;
 import org.reego.reegomc.protection.events.CommandPreventionEvents;
 import org.reego.reegomc.protection.events.PreventionEvents;
 import org.reego.reegomc.server.commands.*;
+import org.reego.reegomc.server.events.ServerDeathEvent;
 import org.reego.reegomc.server.events.ServerPlayerJoinEvent;
 import org.reego.reegomc.server.managers.ServerFileLoop;
 import org.reego.reegomc.server.managers.ServerFileSaving;
@@ -66,6 +67,7 @@ public final class ReegoMC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EconomyEvent(), this);
         getServer().getPluginManager().registerEvents(new CommandPreventionEvents(), this);
         getServer().getPluginManager().registerEvents(new ServerPlayerJoinEvent(), this);
+        getServer().getPluginManager().registerEvents(new ServerDeathEvent(), this);
         new PreventionEvents(this);
         new BlocksEvents(this);
         new ScrollRightClickEvent(this);

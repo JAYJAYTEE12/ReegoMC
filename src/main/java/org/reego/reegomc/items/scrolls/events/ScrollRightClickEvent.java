@@ -2,6 +2,7 @@ package org.reego.reegomc.items.scrolls.events;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,6 +27,7 @@ public class ScrollRightClickEvent implements Listener {
             Player player = event.getPlayer();
             ItemStack item = player.getInventory().getItemInMainHand();
             NBTUtils1_12 nbt = new NBTUtils1_12();
+            if(item == null || item.getType().equals(Material.AIR)) return;
             if(!nbt.hasTag(item, "scroll")) return;
             if(nbt.getString(item, "scroll").equalsIgnoreCase("secret")){
                 // TODO: Add travel cord maker. Add particle effects. Add delay. Add messages. Add check if already clicked scroll
