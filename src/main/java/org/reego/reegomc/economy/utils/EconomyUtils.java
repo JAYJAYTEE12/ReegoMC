@@ -3,6 +3,7 @@ package org.reego.reegomc.economy.utils;
 import org.bukkit.craftbukkit.libs.jline.internal.Nullable;
 import org.bukkit.entity.Player;
 import org.reego.reegomc.ReegoMC;
+import org.reego.reegomc.economy.managers.PlayerFileSaving;
 
 import java.util.UUID;
 
@@ -44,6 +45,12 @@ public class EconomyUtils {
 
     public static void resetBalance(Player player) {
         setBalance(player, 0);
+    }
+
+    public static void deleteBalance(Player player){
+        plugin.getPlayerConfig().set(player.getUniqueId().toString(), null);
+        PlayerFileSaving playerFileSaving = new PlayerFileSaving(plugin);
+        playerFileSaving.savePlayerFile();
     }
 
 }

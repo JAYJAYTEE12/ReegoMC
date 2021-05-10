@@ -27,7 +27,7 @@ public class SpawnCommand implements CommandExecutor {
         }
 
         if(!(sender instanceof Player)){
-            sender.sendMessage(MESSAGES.NOT_PLAYER.message);
+            sender.sendMessage("§cYou must be a player to execute this command!");
             return true;
         }
 

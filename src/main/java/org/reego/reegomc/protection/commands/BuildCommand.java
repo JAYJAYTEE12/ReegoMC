@@ -16,7 +16,7 @@ public class BuildCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!(sender instanceof Player)) {
-            sender.sendMessage(MESSAGES.NOT_PLAYER.message);
+            sender.sendMessage("§cYou must be a player to execute this command!");
             return true;
         }
 
