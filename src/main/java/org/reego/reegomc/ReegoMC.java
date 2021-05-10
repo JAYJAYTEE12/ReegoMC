@@ -11,6 +11,8 @@ import org.reego.reegomc.economy.managers.PlayerFileLoop;
 import org.reego.reegomc.economy.managers.PlayerFileSaving;
 import org.reego.reegomc.economy.utils.EconomyUtils;
 import org.reego.reegomc.items.events.BlocksEvents;
+import org.reego.reegomc.items.scrolls.commands.ScrollCommand;
+import org.reego.reegomc.items.scrolls.events.ScrollRightClickEvent;
 import org.reego.reegomc.protection.commands.BuildCommand;
 import org.reego.reegomc.protection.events.CommandPreventionEvents;
 import org.reego.reegomc.protection.events.PreventionEvents;
@@ -57,6 +59,7 @@ public final class ReegoMC extends JavaPlugin {
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("wipe").setExecutor(new WipeCommand());
+        getCommand("scroll").setExecutor(new ScrollCommand());
         new SaveEconomyCommand(this);
         new SaveServerCommand(this);
         // Events
@@ -65,6 +68,7 @@ public final class ReegoMC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ServerPlayerJoinEvent(), this);
         new PreventionEvents(this);
         new BlocksEvents(this);
+        new ScrollRightClickEvent(this);
     }
 
     void registerUtils(){

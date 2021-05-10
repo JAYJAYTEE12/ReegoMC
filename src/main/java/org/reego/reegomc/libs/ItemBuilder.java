@@ -274,6 +274,8 @@ public class ItemBuilder {
 //			}
 //		} catch(Exception ignored){}
 //		this.displayItem.addUnsafeEnchantment(new EnchantGlow(), 1);
+        this.item.addUnsafeEnchantment(Enchantment.LURE, 1);
+        this.item.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         return this;
     }
 
