@@ -52,7 +52,7 @@ public class ServerUtils {
         float yaw = (float) plugin.getPlayerConfig().getDouble("spawn.yaw");
         float pitch = (float) plugin.getPlayerConfig().getDouble("spawn.pitch");
 
-        return new Location(Bukkit.getWorld("world"), x, y, z, (float) yaw, (float) pitch);
+        return new Location(Bukkit.getWorld("spawn"), x, y, z, (float) yaw, (float) pitch);
     }
 
     public static void setSpawn(Location location){
