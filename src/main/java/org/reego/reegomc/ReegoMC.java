@@ -16,6 +16,8 @@ import org.reego.reegomc.protection.events.CommandPreventionEvents;
 import org.reego.reegomc.protection.events.PreventionEvents;
 import org.reego.reegomc.server.commands.LockdownCommand;
 import org.reego.reegomc.server.commands.SaveServerCommand;
+import org.reego.reegomc.server.commands.SetSpawnCommand;
+import org.reego.reegomc.server.commands.SpawnCommand;
 import org.reego.reegomc.server.events.ServerPlayerJoinEvent;
 import org.reego.reegomc.server.managers.ServerFileLoop;
 import org.reego.reegomc.server.managers.ServerFileSaving;
@@ -55,6 +57,8 @@ public final class ReegoMC extends JavaPlugin {
         getCommand("build").setExecutor(new BuildCommand());
         getCommand("coins").setExecutor(new CoinsCommand());
         getCommand("lockdown").setExecutor(new LockdownCommand());
+        getCommand("setspawn").setExecutor(new SetSpawnCommand());
+        getCommand("spawn").setExecutor(new SpawnCommand());
         new SaveEconomyCommand(this);
         new SaveServerCommand(this);
         // Events

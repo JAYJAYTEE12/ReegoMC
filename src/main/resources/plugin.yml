@@ -20,3 +20,5 @@ commands:
       - bal
       - balance
   lockdown:
+  setspawn:
+  spawn:

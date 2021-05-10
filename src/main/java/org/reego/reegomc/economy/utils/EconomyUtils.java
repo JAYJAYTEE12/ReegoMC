@@ -4,6 +4,8 @@ import org.bukkit.craftbukkit.libs.jline.internal.Nullable;
 import org.bukkit.entity.Player;
 import org.reego.reegomc.ReegoMC;
 
+import java.util.UUID;
+
 public class EconomyUtils {
 
     private static ReegoMC plugin;
@@ -18,6 +20,14 @@ public class EconomyUtils {
             return null;
         }
         return plugin.getPlayerConfig().getInt(player.getUniqueId().toString() + ".Coins");
+    }
+
+    @Nullable
+    public static Integer getCoins(UUID uuid) {
+        if(plugin.getPlayerConfig().get(uuid.toString() + ".Coins") == null){
+            return null;
+        }
+        return plugin.getPlayerConfig().getInt(uuid.toString() + ".Coins");
     }
 
     public static void setBalance(Player player, int amount) {

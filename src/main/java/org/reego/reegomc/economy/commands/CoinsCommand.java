@@ -8,6 +8,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.reego.reegomc.economy.utils.EconomyUtils;
 import org.reego.reegomc.enums.MESSAGES;
+import org.reego.reegomc.libs.UUIDFetcher;
 import org.reego.reegomc.utils.NumberUtils;
 
 public class CoinsCommand implements CommandExecutor {
@@ -28,10 +29,10 @@ public class CoinsCommand implements CommandExecutor {
             }
 
             OfflinePlayer targetOffline = Bukkit.getOfflinePlayer(args[0]);
-            Player target = (Player) targetOffline;
+            Player target = targetOffline.getPlayer();
 
             // If player has an account
-            if (EconomyUtils.getCoins(target) == null) {
+            if (EconomyUtils.getCoins(target.getUniqueId()) == null) {
                 sender.sendMessage("§cThat player doesn't have an account!");
                 return true;
             }
