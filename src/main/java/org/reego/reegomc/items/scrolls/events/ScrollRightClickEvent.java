@@ -31,7 +31,7 @@ public class ScrollRightClickEvent implements Listener {
             if(!nbt.hasTag(item, "scroll")) return;
             if(nbt.getString(item, "scroll").equalsIgnoreCase("secret")){
                 // TODO: Add travel cord maker. Add particle effects. Add delay. Add messages. Add check if already clicked scroll
-                player.teleport(new Location(Bukkit.getWorld("world"), -114.727, 67.30894, 820.351, 0.5F, 90F));
+                player.teleport(new Location(Bukkit.getWorld("spawn"), -114.727, 67.30894, 820.351, 0.5F, 90F));
                 item.setAmount(item.getAmount() - 1);
                 player.getInventory().setItemInMainHand(item);
                 Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
