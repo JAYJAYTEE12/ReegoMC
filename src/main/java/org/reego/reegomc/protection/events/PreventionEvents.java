@@ -66,6 +66,20 @@ public class PreventionEvents implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGH)
+    public void onCrop(PlayerInteractEvent event){
+        Player player = (Player) event.getPlayer();
+
+        if(event.getAction().equals(Action.PHYSICAL)){
+            if(event.getClickedBlock().getType().equals(Material.SOIL)){
+                if(!BuildCommand.getBuildMode(event.getPlayer())){
+                    if(player == null) return;
+                    event.setCancelled(true);
+                }
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
     public void onFood(FoodLevelChangeEvent event) {
         Player player = (Player) event.getEntity();
         event.setCancelled(true);
