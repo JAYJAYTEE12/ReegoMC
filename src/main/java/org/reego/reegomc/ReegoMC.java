@@ -61,7 +61,6 @@ public final class ReegoMC extends JavaPlugin {
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("wipe").setExecutor(new WipeCommand());
         getCommand("scroll").setExecutor(new ScrollCommand());
-        getCommand("goto").setExecutor(new GoToCommand());
         new SaveEconomyCommand(this);
         new SaveServerCommand(this);
         // Events
