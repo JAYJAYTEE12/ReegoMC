@@ -9,6 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.reego.reegomc.ReegoMC;
@@ -76,6 +77,14 @@ public class PreventionEvents implements Listener {
                     event.setCancelled(true);
                 }
             }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGH)
+    public void onFall(EntityDamageEvent event){
+        if(!(event.getEntity() instanceof Player)) return;
+        if(event.getCause().equals(EntityDamageEvent.DamageCause.FALL)){
+            event.setCancelled(true);
         }
     }
 
