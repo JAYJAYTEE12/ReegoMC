@@ -36,7 +36,7 @@ public class BlocksEvents implements Listener {
             player.getWorld().dropItemNaturally(event.getBlock().getLocation(), new ItemBuilder(event.getBlock().getType(), 1, data)
             .setLore(1, "&f&lCOMMON")
                     .addNBT("type", "common").build());
-            event.getBlock().setType(Material.AIR);
+            event.getBlock().setType(Material.BEDROCK);
             player.getWorld().playEffect(event.getBlock().getLocation(), Effect.STEP_SOUND, event.getBlock().getType());
 
             Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
